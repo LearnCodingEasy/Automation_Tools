@@ -1,0 +1,20 @@
+
+@use 'Framework/Framework';
+@use 'Header/Header';
+@use 'Login/Login';
+@use 'Home/Home';
+@use 'Profile/Profile';
+
+/* For Scrollbar */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  width: 0rem;
+  background-color: #333;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #bbbbbb;
+  border-radius: 0.25rem;
+}
+
+
+        
