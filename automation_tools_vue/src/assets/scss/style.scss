@@ -1,9 +1,8 @@
-
-@use 'Framework/Framework';
-@use 'Header/Header';
-@use 'Login/Login';
-@use 'Home/Home';
-@use 'Profile/Profile';
+@use "Framework/Framework";
+@use "Header/Header";
+// @use 'Login/Login';
+// @use "Home/Home";
+// @use "Profile/Profile";
 
 /* For Scrollbar */
 ::-webkit-scrollbar {
@@ -15,6 +14,3 @@
   background-color: #bbbbbb;
   border-radius: 0.25rem;
 }
-
-
-        

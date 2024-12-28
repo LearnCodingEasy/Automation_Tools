@@ -1,17 +1,16 @@
-
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import axios from 'axios'
+import { RouterLink, RouterView } from "vue-router";
+import axios from "axios";
 
 // import { ref } from 'vue'
 //
-import { onMounted } from 'vue'
-import { useUserStore } from '@/stores/user'
-import { useRouter } from 'vue-router'
+import { onMounted } from "vue";
+import { useUserStore } from "@/stores/user";
+import { useRouter } from "vue-router";
 
-const userStore = useUserStore()
-userStore.initStore()
-const router = useRouter()
+const userStore = useUserStore();
+userStore.initStore();
+const router = useRouter();
 
 onMounted(() => {
   // Perform any necessary operations on component mount
@@ -21,20 +20,22 @@ onMounted(() => {
     // router.push('/login')
   } else {
     // Set default Authorization header for axios
-    axios.defaults.headers.common['Authorization'] = `Bearer ${userStore.user.access}`
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${userStore.user.access}`;
     // console.log('User Data: ', userStore.user)
   }
-})
+});
 
 // Log Out
 let logout = () => {
   // console.log('User Log out')
-  userStore.removeToken()
+  userStore.removeToken();
   // توجيه المستخدم إلى صفحة تسجيل الدخول
   setTimeout(() => {
-    router.push('/login').then(() => {})
-  }, 10)
-}
+    router.push("/login").then(() => {});
+  }, 10);
+};
 </script>
 
 <template>
@@ -50,7 +51,9 @@ let logout = () => {
                 <nav class="header_nav">
                   <!-- Tablet Laptop Desktop -->
                   <div class="header_content">
-                    <div class="header_content_inner relative flex items-center justify-between">
+                    <div
+                      class="header_content_inner relative flex items-center justify-between"
+                    >
                       <div
                         class="header_mobile_menu_button absolute inset-y-0 left-0 flex items-center sm:hidden"
                       >
@@ -109,7 +112,9 @@ let logout = () => {
                       <div
                         class="header_wrapper_links flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
                       >
-                        <div class="header_logo_link flex flex-shrink-0 items-center">
+                        <div
+                          class="header_logo_link flex flex-shrink-0 items-center"
+                        >
                           <!-- Logo -->
                           <RouterLink to="/" class="logo flex items-center">
                             <img
@@ -129,13 +134,19 @@ let logout = () => {
                             >
                               Desktop</RouterLink
                             >
-                            <RouterLink to="/" class="rounded-md px-3 py-2 text-md"
+                            <RouterLink
+                              to="/"
+                              class="rounded-md px-3 py-2 text-md"
                               >Laptop
                             </RouterLink>
-                            <RouterLink to="/" class="rounded-md px-3 py-2 text-md"
+                            <RouterLink
+                              to="/"
+                              class="rounded-md px-3 py-2 text-md"
                               >Tablet
                             </RouterLink>
-                            <RouterLink to="/" class="rounded-md px-3 py-2 text-md"
+                            <RouterLink
+                              to="/"
+                              class="rounded-md px-3 py-2 text-md"
                               >Mobile
                             </RouterLink>
                           </div>
@@ -146,7 +157,9 @@ let logout = () => {
                         class="header_wrapper_profile_search absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                       >
                         <!-- input_search -->
-                        <div class="header_input_search mobile_none tablet_none">
+                        <div
+                          class="header_input_search mobile_none tablet_none"
+                        >
                           <prime_input_text
                             class="rounded-md border-black"
                             size="large"
@@ -171,8 +184,14 @@ let logout = () => {
                               <span class="absolute -inset-1.5"></span>
                               <span class="sr-only">View notifications</span>
                               <span class="notifications_length">
-                                <prime_overlay_badge :value="notifications.length" size="small">
-                                  <i class="pi pi-bell" style="font-size: 1.5rem" />
+                                <prime_overlay_badge
+                                  :value="notifications.length"
+                                  size="small"
+                                >
+                                  <i
+                                    class="pi pi-bell"
+                                    style="font-size: 1.5rem"
+                                  />
                                 </prime_overlay_badge>
                               </span>
                             </button>
@@ -212,7 +231,9 @@ let logout = () => {
                               >
                                 <template #header>
                                   <img
-                                    :src="notification.created_by_data.get_avatar"
+                                    :src="
+                                      notification.created_by_data.get_avatar
+                                    "
                                     class="w-10 h-10 rounded-full cursor-pointer"
                                     alt=""
                                     @click="readNotification(notification)"
@@ -236,7 +257,9 @@ let logout = () => {
                                     <i
                                       class="pi"
                                       :class="
-                                        getNotificationIcon(notification.type_of_notification)
+                                        getNotificationIcon(
+                                          notification.type_of_notification
+                                        )
                                       "
                                     ></i>
                                   </prime_button>
@@ -294,7 +317,9 @@ let logout = () => {
                             tabindex="-1"
                           >
                             <!-- User Profile -->
-                            <div class="div_wrapper_profile flex py-1 items-center cursor-pointer">
+                            <div
+                              class="div_wrapper_profile flex py-1 items-center cursor-pointer"
+                            >
                               <div
                                 class="icon_div_wrapper_profile flex justify-center items-center"
                               >
@@ -311,7 +336,10 @@ let logout = () => {
                                   <div class="mr-1">
                                     <span
                                       class="user_img"
-                                      v-if="userStore.user.get_avatar !== 'undefined'"
+                                      v-if="
+                                        userStore.user.get_avatar !==
+                                        'undefined'
+                                      "
                                     >
                                       <img
                                         :src="userStore.user.get_avatar"
@@ -320,21 +348,30 @@ let logout = () => {
                                       />
                                     </span>
                                     <span class="user_icon" v-else>
-                                      <i class="pi pi-user px-2" shape="circle"></i>
+                                      <i
+                                        class="pi pi-user px-2"
+                                        shape="circle"
+                                      ></i>
                                     </span>
                                   </div>
                                   <!-- If Name -->
                                   <div class="">
-                                    <span class="user_name" v-if="userStore.user.name">{{
-                                      userStore.user.name
-                                    }}</span>
-                                    <span class="user_name" v-else>Your Profile</span>
+                                    <span
+                                      class="user_name"
+                                      v-if="userStore.user.name"
+                                      >{{ userStore.user.name }}</span
+                                    >
+                                    <span class="user_name" v-else
+                                      >Your Profile</span
+                                    >
                                   </div>
                                 </RouterLink>
                               </div>
                             </div>
                             <!-- Settings -->
-                            <div class="div_wrapper_logout flex py-1 items-center cursor-pointer">
+                            <div
+                              class="div_wrapper_logout flex py-1 items-center cursor-pointer"
+                            >
                               <div
                                 class="icon_logout flex justify-center items-center"
                                 @click="closeDropdown"
@@ -352,7 +389,10 @@ let logout = () => {
                                 class="icon_logout flex justify-center items-center"
                                 @click="closeDropdown"
                               >
-                                <i class="pi pi-sign-out px-2" shape="circle"></i>
+                                <i
+                                  class="pi pi-sign-out px-2"
+                                  shape="circle"
+                                ></i>
                                 <button class="">Sign out</button>
                               </div>
                             </div>
@@ -424,37 +464,37 @@ export default {
       // Object to store user avatars
       userAvatars: {},
       user: {},
-    }
+    };
   },
   mounted() {
-    document.title = 'Messenger | Home'
-    this.getNotifications()
+    document.title = "Messenger | Home";
+    // this.getNotifications()
   },
   methods: {
     toggleDropdown() {
-      this.isDropdownOpen = !this.isDropdownOpen
+      this.isDropdownOpen = !this.isDropdownOpen;
     },
     closeDropdown() {
-      this.isDropdownOpen = false
+      this.isDropdownOpen = false;
     },
     toggleDropdownMobile() {
-      this.isDropdownMobileOpen = !this.isDropdownMobileOpen
+      this.isDropdownMobileOpen = !this.isDropdownMobileOpen;
     },
     closeDropdownMobile() {
-      this.isDropdownMobileOpen = false
+      this.isDropdownMobileOpen = false;
     },
     toggleDropdownNotifications() {
-      this.isDropdownNotificationsOpen = !this.isDropdownNotificationsOpen
+      this.isDropdownNotificationsOpen = !this.isDropdownNotificationsOpen;
     },
     closeDropdownNotifications() {
-      this.isDropdownNotificationsOpen = false
+      this.isDropdownNotificationsOpen = false;
     },
     getNotifications() {
       axios
-        .get('/api/notifications/')
+        .get("/api/notifications/")
         .then((response) => {
           // console.log(`Notifications Data`, response)
-          this.notifications = response.data
+          this.notifications = response.data;
 
           // this.notifications.forEach((notification) => {
           //   // const sender = notification.created_by
@@ -464,34 +504,36 @@ export default {
           // })
         })
         .catch((error) => {
-          console.log('Error: ', error)
-        })
+          console.log("Error: ", error);
+        });
     },
     async readNotification(notification) {
       await axios
         .post(`/api/notifications/read/${notification.id}/`)
         .then((response) => {
-          console.log('api/notifications/read/', response.data)
-          this.$router.push({ name: 'profile', params: { id: notification.created_by } })
-          this.getNotifications()
+          console.log("api/notifications/read/", response.data);
+          this.$router.push({
+            name: "profile",
+            params: { id: notification.created_by },
+          });
+          this.getNotifications();
         })
         .catch((error) => {
-          console.log('Error: ', error)
-        })
+          console.log("Error: ", error);
+        });
     },
     getNotificationIcon(type) {
       const icons = {
-        new_friendrequest: 'pi-user-plus',
-        accepted_friendrequest: 'pi-check',
-        post_comment: 'pi-comment',
-        post_like: 'pi-thumbs-up-fill',
-        message: 'pi-envelope',
-      }
-      return icons[type] || 'pi-bell'
+        new_friendrequest: "pi-user-plus",
+        accepted_friendrequest: "pi-check",
+        post_comment: "pi-comment",
+        post_like: "pi-thumbs-up-fill",
+        message: "pi-envelope",
+      };
+      return icons[type] || "pi-bell";
     },
   },
-}
+};
 </script>
 
 <style lang="scss"></style>
-
