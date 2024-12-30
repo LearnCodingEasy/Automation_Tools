@@ -17,7 +17,7 @@ onMounted(() => {
   if (!userStore.user.access) {
     // console.log('User Data: ', userStore.user.access)
     // Replace '/login' with your actual login route
-    // router.push('/login')
+    router.push("/login");
   } else {
     // Set default Authorization header for axios
     axios.defaults.headers.common[
@@ -44,8 +44,11 @@ let logout = () => {
     <div class="header_wrapper sticky top-0 left-0 right-0">
       <div class="container mx-auto">
         <div class="header_inner">
-          <!-- <prime_card class="header_card px-2" v-if="userStore.user.isAuthenticated"> -->
-          <prime_card class="header_card px-2">
+          <prime_card
+            class="header_card px-2"
+            v-if="userStore.user.isAuthenticated"
+          >
+            <!-- <prime_card class="header_card px-2"> -->
             <template #content>
               <header class="header_header">
                 <nav class="header_nav">

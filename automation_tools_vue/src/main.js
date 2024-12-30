@@ -1,23 +1,22 @@
-
 // استيراد ملف CSS الرئيسي للمشروع
-import './assets/main.css'
+import "./assets/main.css";
 
 // My Style
 // استيراد ملف SCSS الخاص بالتصميم
 import "./assets/scss/style.scss";
 
 // استيراد دالة createApp من Vue لإنشاء التطبيق
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
 // استيراد Pinia لإدارة الحالة (State Management) في Vue
-import { createPinia } from 'pinia'
+import { createPinia } from "pinia";
 
 // استيراد المكون الرئيسي للتطبيق
 
-import App from './App.vue'
+import App from "./App.vue";
 
 // استيراد إعدادات التوجيه (Vue Router)
-import router from './router'
+import router from "./router";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -33,7 +32,6 @@ library.add(fas, far, fab);
 import axios from "axios";
 // تعيين الـ base URL الخاص بـ Axios
 axios.defaults.baseURL = "http://127.0.0.1:8000";
-
 // أثناء التطوير
 // axios.defaults.baseURL = "http://192.168.1.5:8000";
 
@@ -103,7 +101,7 @@ import StepPanel from "primevue/steppanel";
 // --------------- Card Components ---------------
 // Import card component for displaying content in card format
 // مكون البطاقات لعرض المحتوى بطريقة منسقة
-import Card from 'primevue/card';
+import Card from "primevue/card";
 
 // --------------- Theme Components ---------------
 // استيراد مكونات السمات مثل Noir و ThemeSwitcher
@@ -129,8 +127,8 @@ import Editor from "primevue/editor";
 // استيراد مكونات الجدول لعرض البيانات
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
-import ColumnGroup from "primevue/columngroup";  // اختياري
-import Row from "primevue/row";  // اختياري
+import ColumnGroup from "primevue/columngroup"; // اختياري
+import Row from "primevue/row"; // اختياري
 
 // --------------- Placeholder Components ---------------
 // استيراد مكون Skeleton للتحميل المؤقت
@@ -143,31 +141,29 @@ import OverlayBadge from "primevue/overlaybadge";
 
 // --------------- Carousel Components ---------------
 // استيراد مكون Carousel لعرض الصور أو المحتوى بشكل دوار
-import Carousel from 'primevue/carousel';
+import Carousel from "primevue/carousel";
 
 // --------------- Tag Components ---------------
 // استيراد مكون Tag
-import Tag  from 'primevue/tag';
+import Tag from "primevue/tag";
 
 // --------------- DataView Components ---------------
 // استيراد مكون DataView لعرض البيانات بطريقة مرنة
-import DataView from 'primevue/dataview';
+import DataView from "primevue/dataview";
 
 // --------------- Paginator Components ---------------
 // استيراد مكون Paginator للتنقل بين الصفحات
-import Paginator from 'primevue/paginator';
+import Paginator from "primevue/paginator";
 
 // --------------- Styles ---------------
 // استيراد الأنماط الخاصة بـ PrimeVue و Tailwind CSS
 import "primeicons/primeicons.css";
 import "tailwindcss/tailwind.css";
 
+const app = createApp(App);
 
-
-const app = createApp(App)
-
-app.use(createPinia())  // تفعيل Pinia لإدارة الحالة
-app.use(router, axios);  // تفعيل التوجيه و Axios
+app.use(createPinia()); // تفعيل Pinia لإدارة الحالة
+app.use(router, axios); // تفعيل التوجيه و Axios
 
 // تعريف مكون FontAwesome
 // eslint-disable-next-line vue/multi-word-component-names
@@ -176,7 +172,7 @@ app.component("fa", FontAwesomeIcon);
 // --------------- Initialize PrimeVue ---------------
 app.use(PrimeVue, {
   theme: {
-    preset: Noir,  // تعيين السمة المبدئية
+    preset: Noir, // تعيين السمة المبدئية
     options: {
       prefix: "p",
       darkModeSelector: ".p-dark",
@@ -270,7 +266,4 @@ app.component("prime_data_view", DataView);
 // مكون Paginator
 app.component("prime_paginator", Paginator);
 
-app.mount('#app')  // تشغيل التطبيق على العنصر #app
-
-    
-        
+app.mount("#app"); // تشغيل التطبيق على العنصر #app

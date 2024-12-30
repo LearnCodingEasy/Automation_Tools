@@ -122,6 +122,17 @@ export default defineConfig({
       },
     }),
   ],
+  // 
+  // server: {
+  //   proxy: {
+  //     "/api": {
+  //       target: "http://127.0.0.1:8000",
+  //       changeOrigin: true,
+  //       secure: false,
+  //     },
+  //   },
+  // },
+
   // تحديد الملفات التي يجب على Vite التعامل معها
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   resolve: {
